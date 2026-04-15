@@ -1,5 +1,6 @@
 import random
 import uuid
+import json
 from datetime import datetime, timedelta
 
 
@@ -73,8 +74,8 @@ def generate_event(session, num_events=10):
 
 def send_events(events):
     print(f"Sending {len(events)} events")
-    print("First event:")
-    print(events[0] if events else "No events generated")
+    json_data = json.dumps(events, indent=2)
+    print(json_data)
 
 user = generate_user()
 session = generate_session(user["user_id"])
